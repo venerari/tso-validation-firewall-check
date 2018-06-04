@@ -17,5 +17,4 @@ upper.txt
 lower.txt
 all
 lower.txt
-group_vars/
 *.csv
