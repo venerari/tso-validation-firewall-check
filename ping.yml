@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: false
+  tasks: 
+  
+        - name: ping
+          ping:
+          when: ansible_os_family == "RedHat"
+  
+        - name: win ping
+          win_ping:
+          when: not(ansible_os_family == "RedHat")
