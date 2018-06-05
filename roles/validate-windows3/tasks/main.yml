@@ -147,3 +147,7 @@
     dest: .\windows_output.csv
   run_once: true
   become: false
+  
+- name: Delete temp files
+  shell: rm -f epel* temp* error cp-csv sshcopy windows.yml upper.txt comma.csv
+  delegate_to: localhost

@@ -170,3 +170,7 @@
   run_once: true
   mode: 0022      
       
+- name: Delete temp files
+  shell: rm -f epel* temp* error cp-csv sshcopy linux.yml lower.txt
+  delegate_to: localhost
+        

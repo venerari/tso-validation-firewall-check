@@ -1,5 +1,10 @@
 ---
 
+
+- name: Include server firewall to check
+  include_vars: vars.yml
+
+
 #convert to upper case
 
 - name: Make upper.py executable
@@ -174,3 +179,8 @@
   shell: ./create-loop.py windows.csv
   delegate_to: localhost
   run_once: true
+
+- name: Delete temp files
+  shell: rm -f epel* temp* error cp-csv sshcopy windows.yml upper.txt comma.csv
+  delegate_to: localhost
+  

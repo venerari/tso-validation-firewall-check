@@ -1,9 +1,20 @@
 ---
 
+- name: Include server firewall to check
+  include_vars: vars.yml
+  
+- name: Copy variables vars 1
+  shell: cp roles/validate-linux1/vars/vars.yml roles/validate-linux2/vars/vars.yml
+  delegate_to: localhost    
+
+- name: Copy variables vars 2
+  shell: cp roles/validate-linux1/vars/vars.yml roles/validate-linux3/vars/vars.yml
+  delegate_to: localhost    
+
 #convert to lower case
 
 - name: Make lower.py executable
-  shell: chmod u+x lower.py
+  shell: chmod u+x scripts/lower.py
   delegate_to: localhost
   run_once: true
 
@@ -13,7 +24,7 @@
   run_once: true
 
 - name: Convert all hostname to uppercase
-  shell: ./lower.py lower.txt
+  shell: ./scripts/lower.py lower.txt
   delegate_to: localhost
   run_once: true
   
@@ -45,7 +56,7 @@
   run_once: true  
 
 - name: Create linux3 inventory - remove empty lines 4
-  shell: cat temp000 | sort > linux3
+  shell: cat temp000 | sort > inventory/linux3
   delegate_to: localhost
   run_once: true  
   
@@ -65,16 +76,21 @@
   run_once: true
  
 - name: Create linux2 inventory 4
-  shell: cat temp3 | uniq | sort > linux2
+  shell: cat temp3 | uniq | sort > inventory/linux2
   delegate_to: localhost
   run_once: true
 
 - name: Create loop variables 1
-  shell: chmod u+x create-loop.py
+  shell: chmod u+x scripts/create-loop.py
   delegate_to: localhost
   run_once: true
   
 - name: Create loop variables 2
-  shell: ./create-loop.py linux.csv
+  shell: ./scripts/create-loop.py linux.csv
   delegate_to: localhost
   run_once: true
+
+- name: Delete temp files
+  shell: rm -f epel* temp* error cp-csv sshcopy linux.yml lower.txt
+  delegate_to: localhost
+          
