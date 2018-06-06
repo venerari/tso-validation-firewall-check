@@ -1,7 +1,11 @@
 ---
+
 - hosts: all
   become: false
   tasks: 
+  
+        #- name: kinit
+        #  local_action: command echo "xxxxxxxxxxx" | kinit -l 7d -r 7d -pf user1@DOMAIN.ORG
   
         - name: ping
           ping:

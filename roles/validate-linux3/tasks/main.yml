@@ -12,7 +12,7 @@
   become: false
 
 - name: Convert all hostname to uppercase
-  shell: ./lower.py lower.txt
+  shell: ./scripts/lower.py lower.txt
   delegate_to: localhost
   run_once: true
   become: false
@@ -45,7 +45,6 @@
 
 - name: Get hostname
   shell: echo "{{ ansible_hostname }}"  > /tmp/{{ ansible_hostname }}_data.csv
-  #no_log: true
   args:
     executable: /bin/bash
 
@@ -150,13 +149,13 @@
 #- meta: end_play
 
 - name: Make validate executable
-  shell: chmod u+x validate.py
+  shell: chmod u+x scripts/validate.py
   delegate_to: localhost
   run_once: true
   become: false
 
 - name: Execute Validation
-  shell: ./validate.py linux
+  shell: ./scripts/validate.py linux
   args:
     executable: /bin/bash
   delegate_to: localhost

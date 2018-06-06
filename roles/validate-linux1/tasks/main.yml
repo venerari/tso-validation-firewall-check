@@ -1,15 +1,4 @@
----
-
-- name: Include server firewall to check
-  include_vars: vars.yml
-  
-- name: Copy variables vars 1
-  shell: cp roles/validate-linux1/vars/vars.yml roles/validate-linux2/vars/vars.yml
-  delegate_to: localhost    
-
-- name: Copy variables vars 2
-  shell: cp roles/validate-linux1/vars/vars.yml roles/validate-linux3/vars/vars.yml
-  delegate_to: localhost    
+--- 
 
 #convert to lower case
 
