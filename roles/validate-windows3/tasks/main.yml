@@ -13,7 +13,7 @@
   become: false
 
 - name: Convert all hostname to uppercase
-  shell: ./upper.py upper.txt
+  shell: ./scripts/upper.py upper.txt
   delegate_to: localhost
   run_once: true
   become: false
@@ -100,9 +100,10 @@
       
 - name: Copy a single file
   win_copy:
-     src: PortQry.exe
+     src: scripts/PortQry.exe
      dest: C:\Windows\system32\PortQry.exe
   when: 'file_info is succeeded'
+  ignore_errors: true
 
 - name: Check remote host port
   win_shell: |
@@ -134,7 +135,7 @@
     flat: yes
      
 - name: Execute Validation
-  shell: ./validate.py windows
+  shell: ./scripts/validate.py windows
   args:
     executable: /bin/bash
   delegate_to: localhost

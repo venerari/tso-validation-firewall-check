@@ -7,12 +7,14 @@
   win_stat: 
     path: C:\Windows\system32\powercat.ps1
   register: file_info
+  ignore_errors: true
       
 - name: Copy powercat
   win_copy:
-    src: powercat.ps1
+    src: scripts/powercat.ps1
     dest: C:\Windows\system32\powercat.ps1
   when: file_info is succeeded
+  ignore_errors: true
 
 - name: Put the listener up.
   win_shell: | 
