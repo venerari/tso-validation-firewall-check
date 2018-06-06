@@ -8,7 +8,7 @@
 #convert to upper case
 
 - name: Make upper.py executable
-  shell: chmod u+x upper.py
+  shell: chmod u+x scripts/upper.py
   delegate_to: localhost
   run_once: true
 
@@ -18,7 +18,7 @@
   run_once: true
 
 - name: Convert all hostname to uppercase
-  shell: ./upper.py upper.txt
+  shell: ./scripts/upper.py upper.txt
   delegate_to: localhost
   run_once: true
   
@@ -44,7 +44,7 @@
   run_once: true
 
 - name: Create wins3.ini inventory 3.1
-  shell: echo [windows] > wins3.ini
+  shell: echo [windows] > inventory/wins3.ini
   delegate_to: localhost
   run_once: true  
   
@@ -54,7 +54,7 @@
   run_once: true  
 
 - name: Create wins3.ini inventory 5
-  shell: cat temp0001 | sort >> wins3.ini
+  shell: cat temp0001 | sort >> inventory/wins3.ini
   delegate_to: localhost
   run_once: true  
 
@@ -105,7 +105,7 @@
 
   
 - name: Create wins3.ini inventory 9
-  shell: cat tempwins >> wins3.ini
+  shell: cat tempwins >> inventory/wins3.ini
   delegate_to: localhost
   run_once: true 
   
@@ -116,23 +116,23 @@
 #  run_once: true  
 
 - name: Make create-comma.sh executable
-  shell: chmod u+x create-comma.sh
+  shell: chmod u+x scripts/create-comma.sh
   delegate_to: localhost
   run_once: true
 
 - name: Make combine.py executable
-  shell: chmod u+x combine.py
+  shell: chmod u+x scripts/combine.py
   delegate_to: localhost
   run_once: true
 
 
 - name: Create wins2.ini inventory 1.1
-  shell: ./create-comma.sh
+  shell: ./scripts/create-comma.sh
   delegate_to: localhost
   run_once: true
 
 - name: Create wins2.ini inventory 1.2
-  shell: ./combine.py > temp003
+  shell: ./scripts/combine.py > temp003
   delegate_to: localhost
   run_once: true
 
@@ -153,30 +153,30 @@
   run_once: true   
 
 - name: Create wins2.ini inventory 4.00
-  shell: echo [windows] > wins2.ini
+  shell: echo [windows] > inventory/wins2.ini
   delegate_to: localhost
   run_once: true    
 
   
 - name: Create wins2.ini inventory 4.01
-  shell: awk NF temp4 >> wins2.ini
+  shell: awk NF temp4 >> inventory/wins2.ini
   delegate_to: localhost
   run_once: true    
   
 - name: Create wins2.ini inventory 5
-  shell: cat tempwins >> wins2.ini
+  shell: cat tempwins >> inventory/wins2.ini
   delegate_to: localhost
   run_once: true 
 
  
  
 - name: Create loop variables 1
-  shell: chmod u+x create-loop.py
+  shell: chmod u+x scripts/create-loop.py
   delegate_to: localhost
   run_once: true
   
 - name: Create loop variables 2
-  shell: ./create-loop.py windows.csv
+  shell: ./scripts/create-loop.py windows.csv
   delegate_to: localhost
   run_once: true
 
