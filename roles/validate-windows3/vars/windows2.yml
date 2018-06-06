@@ -1,5 +1,0 @@
-ansible_user=administrator
-ansible_password=Clark123456
-ansible_connection=winrm
-ansible_winrm_transport=basic
-ansible_winrm_server_cert_validation=ignore
