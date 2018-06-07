@@ -112,6 +112,7 @@
   ignore_errors: True
   when: item.server1 == ansible_hostname|upper
   with_items: "{{ servers }}" 
+  ignore_errors: true
   
 #- debug: var=out   
   
@@ -121,6 +122,7 @@
     executable: cmd
   when: item.item.server1 == ansible_hostname|upper
   with_items: "{{ out.results }}"
+  ignore_errors: true
 
 - name: Combine final data
   win_shell: |

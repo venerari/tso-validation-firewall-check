@@ -129,6 +129,7 @@
   register: out
   when: item.server1 == ansible_hostname
   with_items: "{{ servers }}"
+  ignore_errors: true
   
 #- debug: var=out  
 
@@ -138,6 +139,7 @@
     executable: /bin/bash
   when: item.item.server1 == ansible_hostname
   with_items: "{{ out.results }}"
+  ignore_errors: true
     
 
 - name: Fetching file
