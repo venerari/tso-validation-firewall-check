@@ -11,7 +11,7 @@
       
 - name: Copy powercat
   win_copy:
-    src: scripts/powercat.ps1
+    src: scripts/tvfc/powercat.ps1
     dest: C:\Windows\system32\powercat.ps1
   when: file_info is succeeded
   ignore_errors: true

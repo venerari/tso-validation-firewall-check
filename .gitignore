@@ -17,3 +17,5 @@ upper.txt
 lower.txt
 lower.txt
 *.csv
+ansible.log
+*.zip

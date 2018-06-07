@@ -13,7 +13,7 @@
   become: false
 
 - name: Convert all hostname to uppercase
-  shell: ./scripts/upper.py upper.txt
+  shell: ./scripts/tvfc/upper.py upper.txt
   delegate_to: localhost
   run_once: true
   become: false
@@ -100,7 +100,7 @@
       
 - name: Copy a single file
   win_copy:
-     src: scripts/PortQry.exe
+     src: scripts/tvfc/PortQry.exe
      dest: C:\Windows\system32\PortQry.exe
   when: 'file_info is succeeded'
   ignore_errors: true
@@ -135,7 +135,7 @@
     flat: yes
      
 - name: Execute Validation
-  shell: ./scripts/validate.py windows
+  shell: ./scripts/tvfc/validate.py windows
   args:
     executable: /bin/bash
   delegate_to: localhost

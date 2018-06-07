@@ -3,9 +3,10 @@
 #convert to lower case
 
 - name: Make lower.py executable
-  shell: chmod u+x scripts/lower.py
+  shell: chmod u+x scripts/tvfc/lower.py
   delegate_to: localhost
   run_once: true
+
 
 - name: Remove the header of the linux.csv
   shell: awk 'FNR > 1 { print  $0 }' linux.csv > lower.txt
@@ -13,7 +14,7 @@
   run_once: true
 
 - name: Convert all hostname to uppercase
-  shell: ./scripts/lower.py lower.txt
+  shell: ./scripts/tvfc/lower.py lower.txt
   delegate_to: localhost
   run_once: true
   
@@ -70,16 +71,16 @@
   run_once: true
 
 - name: Create loop variables 1
-  shell: chmod u+x scripts/create-loop.py
+  shell: chmod u+x scripts/tvfc/create-loop.py
   delegate_to: localhost
   run_once: true
   
 - name: Create loop variables 2
-  shell: ./scripts/create-loop.py linux.csv
+  shell: ./scripts/tvfc/create-loop.py linux.csv
   delegate_to: localhost
   run_once: true
 
 - name: Delete temp files
   shell: rm -f epel* temp* error cp-csv sshcopy linux.yml lower.txt
   delegate_to: localhost
-          
+

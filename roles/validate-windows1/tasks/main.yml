@@ -8,7 +8,7 @@
 #convert to upper case
 
 - name: Make upper.py executable
-  shell: chmod u+x scripts/upper.py
+  shell: chmod u+x scripts/tvfc/upper.py
   delegate_to: localhost
   run_once: true
 
@@ -18,7 +18,7 @@
   run_once: true
 
 - name: Convert all hostname to uppercase
-  shell: ./scripts/upper.py upper.txt
+  shell: ./scripts/tvfc/upper.py upper.txt
   delegate_to: localhost
   run_once: true
   
@@ -116,23 +116,23 @@
 #  run_once: true  
 
 - name: Make create-comma.sh executable
-  shell: chmod u+x scripts/create-comma.sh
+  shell: chmod u+x scripts/tvfc/create-comma.sh
   delegate_to: localhost
   run_once: true
 
 - name: Make combine.py executable
-  shell: chmod u+x scripts/combine.py
+  shell: chmod u+x scripts/tvfc/combine.py
   delegate_to: localhost
   run_once: true
 
 
 - name: Create wins2.ini inventory 1.1
-  shell: ./scripts/create-comma.sh
+  shell: ./scripts/tvfc/create-comma.sh
   delegate_to: localhost
   run_once: true
 
 - name: Create wins2.ini inventory 1.2
-  shell: ./scripts/combine.py > temp003
+  shell: ./scripts/tvfc/combine.py > temp003
   delegate_to: localhost
   run_once: true
 
@@ -171,12 +171,12 @@
  
  
 - name: Create loop variables 1
-  shell: chmod u+x scripts/create-loop.py
+  shell: chmod u+x scripts/tvfc/create-loop.py
   delegate_to: localhost
   run_once: true
   
 - name: Create loop variables 2
-  shell: ./scripts/create-loop.py windows.csv
+  shell: ./scripts/tvfc/create-loop.py windows.csv
   delegate_to: localhost
   run_once: true
 

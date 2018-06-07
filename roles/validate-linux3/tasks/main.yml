@@ -12,7 +12,7 @@
   become: false
 
 - name: Convert all hostname to uppercase
-  shell: ./scripts/lower.py lower.txt
+  shell: ./scripts/tvfc/lower.py lower.txt
   delegate_to: localhost
   run_once: true
   become: false
@@ -149,13 +149,13 @@
 #- meta: end_play
 
 - name: Make validate executable
-  shell: chmod u+x scripts/validate.py
+  shell: chmod u+x scripts/tvfc/validate.py
   delegate_to: localhost
   run_once: true
   become: false
 
 - name: Execute Validation
-  shell: ./scripts/validate.py linux
+  shell: ./scripts/tvfc/validate.py linux
   args:
     executable: /bin/bash
   delegate_to: localhost
