@@ -27,9 +27,9 @@ Put the password on the group_var/all with variable ansible_become_pass: xxxxxxx
 ./validate-linux.sh
 
 #or the manual ansible scripts
-ansible-playbook -i inventory validate-linux1.yml
-ansible-playbook -i linux2 validate-linux2.yml
-ansible-playbook -i linux3 validate-linux3.yml
+ansible-playbook -i inventory/local validate-linux1.yml
+ansible-playbook -i inventory/linux2 validate-linux2.yml
+ansible-playbook -i inventory/linux3 validate-linux3.yml
 
 #description of ansible script
 validate-linux1.yml = Generate variables (linux.yml) and inventories (linux2 and linux3)
@@ -48,9 +48,9 @@ Put the password on the group_var/all with variable ansible_become_pass: xxxxxxx
 ./validate-windows.sh
 
 #or the manual ansible scripts
-ansible-playbook -i inventory validate-windows1.yml
-ansible-playbook -i wins2.ini validate2-windows2.yml
-ansible-playbook -i wins3.ini validate3-windows3.yml
+ansible-playbook -i inventory/local validate-windows1.yml
+ansible-playbook -i inventory/wins2.ini validate2-windows2.yml
+ansible-playbook -i inventory/wins3.ini validate3-windows3.yml
 
 #description of ansible script
 validate-windows1.yml = Generate variables (windows.yml) and inventories (wins2.ini and wins3.ini)
