@@ -1,3 +1,4 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # TSO-Validation for Linux and Windows
 
 ***Clone this repository***
@@ -65,5 +66,17 @@ See the linux.csv or windows.csv.
 
 # Example Output
 See the linux_output-sample.csv.
-# tso-validation-firewall-check
-# tso-validation-firewall-check
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Windows Static Content
+
+```
+
+ansible-playbook -i inventory/local stage1.yml
+ansible-playbook -i inventory/wins.ini stage2.yml
+
+#description of ansible script
+stage1.yml = Generate variables (common.yml) and inventory (wins.ini)
+stage2.yml = Final Staging
+```
