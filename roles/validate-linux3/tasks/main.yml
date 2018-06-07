@@ -166,8 +166,8 @@
 
 - name: Copy linux_output.csv to the first client
   copy:
-    src: linux_output.csv
-    dest: linux_output.csv
+    src: ./linux_output.csv
+    dest: ./linux_output.csv
   run_once: true
   mode: 0022      
       
